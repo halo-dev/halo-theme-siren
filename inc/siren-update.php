@@ -242,12 +242,12 @@ function Exuser_center(){ ?>
   <?php if(current_user_can('level_10')){ ?>
   <div class="admin-login-check">
     <?php echo login_ok(); ?>
-    <?php if(akina_option('login_urlskip')){ ?><script>gopage("<?php bloginfo('url'); ?>/wp-admin/",1);</script><?php } ?>
+    <?php if(akina_option('login_urlskip')){ ?><script>gopage("${context!}/wp-admin/",1);</script><?php } ?>
   </div>
   <?php }else{ ?>
   <div class="user-login-check">
     <?php echo login_ok(); ?>
-    <?php if(akina_option('login_urlskip')){ ?><script>gopage("<?php bloginfo('url'); ?>",0);</script><?php } ?>
+    <?php if(akina_option('login_urlskip')){ ?><script>gopage("${context!}",0);</script><?php } ?>
   </div>
 <?php 
   }
@@ -263,9 +263,9 @@ function login_ok(){
   <?php if($current_user->user_email){echo '<p>'.$current_user->user_email.'</p>';} ?>
   <p id="login-showtime"></p>
   <p class="ex-logout">
-    <a href="<?php bloginfo('url'); ?>" title="首页">首页</a>
+    <a href="${context!}" title="首页">首页</a>
     <?php if(current_user_can('level_10')){  ?>
-    <a href="<?php bloginfo('url'); ?>/wp-admin/" title="后台" target="_top">后台</a> 
+    <a href="${context!}/wp-admin/" title="后台" target="_top">后台</a>
     <?php } ?>
     <a href="<?php echo wp_logout_url(get_bloginfo('url')); ?>" title="登出" target="_top">登出？</a>
   </p>
@@ -328,10 +328,10 @@ function header_user_menu(){
         </div>
         <div class="user-menu-option">
           <?php if (current_user_can('level_10')) { ?>
-            <a href="<?php bloginfo('url'); ?>/wp-admin/" target="_top">管理中心</a>
-            <a href="<?php bloginfo('url'); ?>/wp-admin/post-new.php" target="_top">撰写文章</a>
+            <a href="${context!}/wp-admin/" target="_top">管理中心</a>
+            <a href="${context!}/wp-admin/post-new.php" target="_top">撰写文章</a>
           <?php } ?>
-          <a href="<?php bloginfo('url'); ?>/wp-admin/profile.php" target="_top">个人资料</a>
+          <a href="${context!}/wp-admin/profile.php" target="_top">个人资料</a>
           <a href="<?php echo wp_logout_url(get_bloginfo('url')); ?>" target="_top">退出登录</a>
         </div>
       </div>

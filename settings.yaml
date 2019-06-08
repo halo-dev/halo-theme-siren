@@ -66,7 +66,7 @@ general:
       label: 分页模式
       type: radio
       data-type: string
-      default: round
+      default: ajax
       options:
         - value: ajax
           label: ajax加载
@@ -76,3 +76,219 @@ general:
       name: site_custom_style
       label: 自定义CSS样式
       type: textarea
+
+mainScreen:
+  label: 第一屏
+  items:
+    head_focus:
+      name: head_focus
+      label: 总开关
+      type: radio
+      data-type: bool
+      default: true
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
+    focus_infos:
+      name: focus_infos
+      label: 社交信息
+      type: radio
+      data-type: bool
+      default: true
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
+    focus_height:
+      name: focus_height
+      label: 全屏显示
+      type: radio
+      data-type: bool
+      default: true
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
+    focus_amv:
+      name: focus_amv
+      label: 开启视频
+      type: radio
+      data-type: bool
+      default: false
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
+    focus_mvlive:
+      name: focus_mvlive
+      label: 视频自动续播
+      type: radio
+      data-type: bool
+      default: false
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
+    amv_url:
+      name: amv_url
+      label: 视频地址
+      type: text
+      placeholder: '视频的来源地址，该地址拼接下面的视频名，地址尾部不需要加斜杠'
+    amv_title:
+      name: amv_title
+      label: 视频名称
+      type: text
+    focus_img_1:
+      name: focus_img_1
+      label: 背景图
+      type: text
+    focus_img_2:
+      name: focus_img_2
+      label: 背景图 - 2
+      type: text
+    focus_img_3:
+      name: focus_img_3
+      label: 背景图 - 3
+      type: text
+    focus_img_4:
+      name: focus_img_4
+      label: 背景图 - 4
+      type: text
+    focus_img_5:
+      name: focus_img_5
+      label: 背景图 - 5
+      type: text
+    focus_img_filter:
+      name: focus_img_filter
+      label: 背景图滤镜
+      type: select
+      default: filter-nothing
+      options:
+        - value: filter-nothing
+          label: 无
+        - value: filter-undertint
+          label: 浅色
+        - value: filter-dim
+          label: 暗淡
+        - value: filter-grid
+          label: 网格
+post:
+  label: 文章页
+  items:
+    post_like:
+      name: post_like
+      label: 文章点赞
+      type: radio
+      data-type: bool
+      default: true
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
+    post_share:
+      name: post_share
+      label: 文章分享
+      type: radio
+      data-type: bool
+      default: true
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
+    post_nepre:
+      name: post_nepre
+      label: 上一篇下一篇
+      type: radio
+      data-type: bool
+      default: true
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
+    author_profile:
+      name: author_profile
+      label: 博主信息
+      type: radio
+      data-type: bool
+      default: true
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
+    alipay_code:
+      name: alipay_code
+      label: 支付宝打赏
+      type: text
+    wechat_code:
+      name: wechat_code
+      label: 微信打赏
+      type: text
+sns:
+  label: 社交网络
+  items:
+    wechat:
+      name: wechat
+      label: 微信二维码
+      type: text
+    sina:
+      name: sina
+      label: 新浪微博
+      type: text
+    qq:
+      name: qq
+      label: 腾讯QQ
+      type: text
+    qzone:
+      name: qzone
+      label: QQ空间
+      type: text
+    github:
+      name: github
+      label: Github
+      type: text
+    lofter:
+      name: lofter
+      label: Lofter
+      type: text
+    bili:
+      name: bili
+      label: BiliBili
+      type: text
+    wangyiyun:
+      name: wangyiyun
+      label: 网易云音乐
+      type: text
+    twitter:
+      name: twitter
+      label: Twitter
+      type: text
+    facebook:
+      name: facebook
+      label: Facebook
+      type: text
+    googleplus:
+      name: googleplus
+      label: Google+
+      type: text
+    jianshu:
+      name: jianshu
+      label: 简书
+      type: text
+    csdn:
+      name: csdn
+      label: CSDN
+      type: text
+    zhihu:
+      name: zhihu
+      label: 知乎
+      type: text

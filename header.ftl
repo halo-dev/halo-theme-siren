@@ -31,37 +31,40 @@
 		}
 	</script>
 </head>
-<body <?php body_class(); ?>>
+<body class="blog logged-in hfeed">
 <section id="main-container">
-	<?php
-    if (!akina_option('head_focus')) {
-        $filter = akina_option('focus_img_filter');
-        ?>
-	<div class="headertop <?php echo $filter; ?>">
-		<?php get_template_part('layouts/imgbox'); ?>
-	</div>
-	<?php } ?>
+    <#if settings.head_focus!true>
+		<div class="headertop ${settings.focus_img_filter!'filter-nothing'}">
+			<#include "layouts/imgbox.ftl">
+		</div>
+	</#if>
 	<div id="page" class="site wrapper">
 		<header class="site-header" role="banner">
 			<div class="site-top">
 				<div class="site-branding">
-					<?php if (akina_option('akina_logo')){ ?>
-					<div class="site-title"><a href="<?php bloginfo('url'); ?>"><img
-									src="<?php echo akina_option('akina_logo'); ?>"></a></div>
-					<?php }else{ ?>
-					<h1 class="site-title"><a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h1>
-					<?php } ?><!-- logo end -->
+					<#if options.blog_logo??>
+						<div class="site-title">
+							<a href="${context!}">
+								<img src="${options.blog_logo!}">
+							</a>
+						</div>
+					<#else>
+						<h1 class="site-title"><a href="${context!}">${options.blog_title!}</a></h1>
+					<!-- logo end -->
+					</#if>
 				</div><!-- .site-branding -->
 				<?php header_user_menu();
-                if (akina_option('top_search') == 'yes') { ?>
+				<#if settings.top_search!true>
 				<div class="searchbox"><i class="iconfont js-toggle-search iconsearch">&#xe65c;</i></div>
-				<?php } ?>
-				<div class="lower"><?php if (!akina_option('shownav')) { ?>
-					<div id="show-nav" class="showNav">
-						<div class="line line1"></div>
-						<div class="line line2"></div>
-						<div class="line line3"></div>
-					</div><?php } ?>
+				</#if>
+				<div class="lower">
+					<#if !settings.shownav!false>
+						<div id="show-nav" class="showNav">
+							<div class="line line1"></div>
+							<div class="line line2"></div>
+							<div class="line line3"></div>
+						</div>
+					</#if>
 					<nav><?php wp_nav_menu(array('depth' => 2, 'theme_location' => 'primary', 'container' => false)); ?></nav>
 					<!-- #site-navigation -->
 				</div>

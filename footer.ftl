@@ -9,6 +9,8 @@
  * @package Akina
  */
 -->
+<#import "/common/macro/common_macro.ftl" as common>
+
 </div><!-- #content -->
 <?php
 if (akina_option('general_disqus_plugin_support')) {
@@ -22,7 +24,7 @@ if (akina_option('general_disqus_plugin_support')) {
 	<div class="site-info">
 		<div class="footertext">
 			<p class="foo-logo"
-			   style="background-image: url('<?php bloginfo('template_url'); ?>/images/f-logo.png');"></p>
+			   style="background-image: url('${static!}/images/f-logo.png');"></p>
 			<p><?php echo akina_option('footer_info', ''); ?></p>
 		</div>
 		<div class="footer-device">
@@ -39,46 +41,61 @@ if (akina_option('general_disqus_plugin_support')) {
 		<div class="icon"></div>
 	</div>
 	<div class="site-branding">
-		<?php if (akina_option('akina_logo')) { ?>
-		<div class="site-title"><a href="<?php bloginfo('url'); ?>"><img
-						src="<?php echo akina_option('akina_logo'); ?>"></a></div>
-		<?php } else { ?>
-		<h1 class="site-title"><a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h1>
-		<?php } ?>
+		<#if options.blog_logo??>
+			<div class="site-title">
+				<a href="${context!}">
+					<img src="${options.blog_logo!}">
+				</a>
+			</div>
+		<#else>
+			<h1 class="site-title"><a href="${context!}">${options.blog_title!}</a></h1>
+		</#if>
 	</div>
 </div><!-- m-nav-bar -->
 </section><!-- #section -->
 <!-- m-nav-center -->
 <div id="mo-nav">
 	<div class="m-avatar">
-		<?php $ava = akina_option('focus_logo') ? akina_option('focus_logo') : get_template_directory_uri() . '/images/avatar.jpg'; ?>
-		<img src="<?php echo $ava ?>">
+		<#if user.avatar??>
+			<img src="${user.avatar!}">
+		<#else>
+			<img src="${static!}/images/avatar.jpg">
+		</#if>
 	</div>
 	<div class="m-search">
-		<form class="m-search-form" method="get" action="<?php echo home_url(); ?>" role="search">
-			<input class="m-search-input" type="search" name="s" placeholder="<?php _e('搜索...', 'akina') ?>" required>
+		<form class="m-search-form" method="get" action="/search" role="search">
+			<input class="m-search-input" type="search" name="keyword" placeholder="搜索..." required>
 		</form>
 	</div>
 	<?php wp_nav_menu(array('depth' => 2, 'theme_location' => 'primary', 'container' => false)); ?>
 </div><!-- m-nav-center end -->
 <a href="#" class="cd-top"></a>
 <!-- search start -->
-<form class="js-search search-form search-form--modal" method="get" action="<?php echo home_url(); ?>" role="search">
+<form class="js-search search-form search-form--modal" method="get" action="/search" role="search">
 	<div class="search-form__inner">
 		<div>
-			<p class="micro mb-"><?php _e('输入后按回车搜索 ...', 'akina') ?></p>
+			<p class="micro mb-">输入后按回车搜索 ...</p>
 			<i class="iconfont">&#xe65c;</i>
-			<input class="text-input" type="search" name="s" placeholder="<?php _e('Search', 'akina') ?>" required>
+			<input class="text-input" type="search" name="keyword" placeholder="Search" required>
 		</div>
 	</div>
 	<div class="search_close"></div>
 </form>
 <!-- search end -->
-<?php wp_footer(); ?>
-<?php if (akina_option('site_statistics')) { ?>
+<#--<?php wp_footer(); ?>-->
+
+<script type='text/javascript' src='${static!}/js/jquery.min.js?ver=2.0.6.170420'></script>
+<script type='text/javascript' src='${static!}/js/jquery.pjax.js?ver=2.0.6.170420'></script>
+<script type='text/javascript' src='${static!}/js/input.min.js?ver=2.0.6.170420'></script>
+<script type='text/javascript'>
+	/* <![CDATA[ */
+	var Poi = {"pjax":"","movies":"close","windowheight":"auto","codelamp":"close","ajaxurl":"http:\/\/192.168.100.6:8091\/wp-admin\/admin-ajax.php","order":"asc","formpostion":"bottom"};
+	/* ]]> */
+</script>
+<script type='text/javascript' src='${static!}/js/app.js?ver=2.0.6.170420'></script>
+
 <div class="site-statistics">
-	<script type="text/javascript"><?php echo akina_option('site_statistics'); ?></script>
+	<@common.statistics />
 </div>
-<?php } ?>
 </body>
 </html>
