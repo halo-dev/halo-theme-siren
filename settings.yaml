@@ -1,0 +1,78 @@
+general:
+  label: 基本设置
+  items:
+    theme_skin:
+      name: theme_skin
+      label: 主题风格
+      type: text
+      default: '#FE9600'
+    shownav:
+      name: shownav
+      label: 展开导航菜单
+      type: radio
+      data-type: bool
+      default: false
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
+    patternimg:
+      name: patternimg
+      label: 头部装饰图
+      type: radio
+      data-type: bool
+      default: true
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
+    top_search:
+      name: top_search
+      label: 搜索按钮
+      type: radio
+      data-type: bool
+      default: true
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
+    post_list_style:
+      name: post_list_style
+      label: 首页文章风格
+      type: radio
+      data-type: string
+      default: standard
+      options:
+        - value: standard
+          label: 标准
+        - value: imageflow
+          label: 图文
+    list_type:
+      name: list_type
+      label: 首页文章特色图（仅对标准风格生效）
+      type: radio
+      data-type: string
+      default: round
+      options:
+        - value: round
+          label: 圆形
+        - value: square
+          label: 方形
+    pagenav_style:
+      name: pagenav_style
+      label: 分页模式
+      type: radio
+      data-type: string
+      default: round
+      options:
+        - value: ajax
+          label: ajax加载
+        - value: np
+          label: 上一页和下一页
+    site_custom_style:
+      name: site_custom_style
+      label: 自定义CSS样式
+      type: textarea
