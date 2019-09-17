@@ -5,7 +5,7 @@ get_header();
 ?>
 <div class="author_info">
 	<div class="avatar">
-		<img src="<?php echo get_avatar_profile_url(); ?>" itemprop="image" alt="<?php the_author(); ?>" height="70" width="70">
+		<img src="${user.avatar!}" itemprop="image" alt="<?php the_author(); ?>" height="70" width="70">
 	</div>
 	<div class="author-center">
 		<h3><?php the_author() ?></h3>

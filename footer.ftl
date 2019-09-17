@@ -9,30 +9,19 @@
  * @package Akina
  */
 -->
-<#import "/common/macro/common_macro.ftl" as common>
-
 </div><!-- #content -->
-<?php
-if (akina_option('general_disqus_plugin_support')) {
-    get_template_part('layouts/duoshuo');
-} else {
-    comments_template('', true);
-}
-?>
 </div><!-- #page Pjax container-->
 <footer id="colophon" class="site-footer" role="contentinfo">
 	<div class="site-info">
 		<div class="footertext">
 			<p class="foo-logo"
 			   style="background-image: url('${static!}/images/f-logo.png');"></p>
-			<p><?php echo akina_option('footer_info', ''); ?></p>
+			<p>
+				<@global.footer />
+			</p>
 		</div>
 		<div class="footer-device">
-			<?php
-            $statistics_link = akina_option('site_statistics_link') ? '<a href="' . akina_option('site_statistics_link') . '" target="_blank" rel="nofollow">Statistics</a>' : '';
-			$site_map_link = akina_option('site_map_link') ? '<a href="' . akina_option('site_map_link') . '" target="_blank" rel="nofollow">Sitemap</a>' : '';
-			printf(esc_html__('%1$s &nbsp; %2$s &nbsp; %3$s &nbsp; %4$s', 'akina'), $site_map_link, '<a href="http://www.akina.pw/themeakina" rel="designer" target="_blank" rel="nofollow">Theme</a>', '<a href="https://wordpress.org/" target="_blank" rel="nofollow">WordPress</a>', $statistics_link);
-			?>
+			&nbsp; <a href="http://www.akina.pw/themeakina" rel="designer" target="_blank">Theme</a> &nbsp; <a href="https://halo.run/" target="_blank" rel="nofollow">Halo</a> &nbsp;
 		</div>
 	</div><!-- .site-info -->
 </footer><!-- #colophon -->
@@ -67,7 +56,22 @@ if (akina_option('general_disqus_plugin_support')) {
 			<input class="m-search-input" type="search" name="keyword" placeholder="搜索..." required>
 		</form>
 	</div>
-	<?php wp_nav_menu(array('depth' => 2, 'theme_location' => 'primary', 'container' => false)); ?>
+	<ul id="menu-menu-1" class="menu">
+		<@menuTag method="tree">
+			<#list menus?sort_by('priority') as menu>
+				<li>
+					<a href="${menu.url!}">${menu.name!}</a>
+					<#if menu.children?? && menu.children?size gt 0>
+						<ul class="sub-menu">
+							<#list menu.children as child>
+								<li><a href="${child.url!}">${child.name}</a></li>
+							</#list>
+						</ul>
+					</#if>
+				</li>
+			</#list>
+		</@menuTag>
+	</ul>
 </div><!-- m-nav-center end -->
 <a href="#" class="cd-top"></a>
 <!-- search start -->

@@ -8,18 +8,13 @@
  */
 
 -->
-<#import "/common/macro/common_macro.ftl" as common>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title itemprop="name"><?php global $page, $paged;wp_title( '-', true, 'right' );
-bloginfo( 'name' );$site_description = get_bloginfo( 'description', 'display' );
-if ( $site_description && ( is_home() || is_front_page() ) ) echo " - $site_description";if ( $paged >= 2 || $page >= 2
-        ) echo ' - ' . sprintf( __( '第 %s 页'), max( $paged, $page ) );?>
-    </title>
+    <title itemprop="name">未找到页面 - ${options.blog_title!}</title>
 
-    <@common.globalHeader />
+    <@global.head />
 
     <link rel='stylesheet' id='siren-css'  href='${static!}/style.css?ver=2.0.6.170420' type='text/css' media='all' />
 

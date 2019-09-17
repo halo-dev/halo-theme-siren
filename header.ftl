@@ -9,7 +9,6 @@
  * @package Akina
 */
 -->
-<#import "/common/macro/common_macro.ftl" as common>
 <#macro header title,keywords,description>
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -18,10 +17,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title itemprop="name">${title!}</title>
 
-	<meta name="description" content="${description}"/>
+	<meta name="description" content="${description!}"/>
 	<meta name="keywords" content="${keywords!}"/>
 
-	<@common.globalHeader />
+	<@global.head />
 
 	<link rel='stylesheet' id='siren-css'  href='${static!}/style.css?ver=2.0.6.170420' type='text/css' media='all' />
 
@@ -53,7 +52,19 @@
 					<!-- logo end -->
 					</#if>
 				</div><!-- .site-branding -->
-				<?php header_user_menu();
+				<div class="header-user-avatar">
+					<img src="${user.avatar!}" width="30" height="30">
+					<div class="header-user-menu">
+						<div class="herder-user-name">Blogger
+							<div class="herder-user-name-u">${user.nickname!}</div>
+						</div>
+						<div class="user-menu-option">
+							<a href="${context!}/admin/index.html#/dashboard" target="_blank">管理中心</a>
+							<a href="${context!}/admin/index.html#/posts/write" target="_blank">撰写文章</a>
+							<a href="${context!}/admin/index.html#/user/profile" target="_blank">个人资料</a>
+						</div>
+					</div>
+				</div>
 				<#if settings.top_search!true>
 				<div class="searchbox"><i class="iconfont js-toggle-search iconsearch">&#xe65c;</i></div>
 				</#if>
@@ -65,11 +76,29 @@
 							<div class="line line3"></div>
 						</div>
 					</#if>
-					<nav><?php wp_nav_menu(array('depth' => 2, 'theme_location' => 'primary', 'container' => false)); ?></nav>
+					<nav <#if settings.shownav!false>class="navbar"</#if>>
+						<ul id="menu-menu-1" class="menu">
+							<@menuTag method="tree">
+								<#list menus?sort_by('priority') as menu>
+									<li>
+										<a href="${menu.url!}" target="${menu.target!}">${menu.name}</a>
+										<#if menu.children?? && menu.children?size gt 0>
+											<ul class="sub-menu">
+												<#list menu.children as child>
+													<a href="${child.url!}" target="${child.target!}">${child.name}</a>
+												</#list>
+											</ul>
+										</#if>
+									</li>
+
+								</#list>
+							</@menuTag>
+						</ul>
+					</nav>
 					<!-- #site-navigation -->
 				</div>
 			</div>
 		</header><!-- #masthead -->
-		<?php the_headPattern(); ?>
+<#--		<?php the_headPattern(); ?>-->
 		<div id="content" class="site-content">
 </#macro>

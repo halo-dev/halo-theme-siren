@@ -4,7 +4,7 @@ general:
     theme_skin:
       name: theme_skin
       label: 主题风格
-      type: text
+      type: color
       default: '#FE9600'
     shownav:
       name: shownav
@@ -147,23 +147,23 @@ mainScreen:
     focus_img_1:
       name: focus_img_1
       label: 背景图
-      type: text
+      type: attachment
     focus_img_2:
       name: focus_img_2
       label: 背景图 - 2
-      type: text
+      type: attachment
     focus_img_3:
       name: focus_img_3
       label: 背景图 - 3
-      type: text
+      type: attachment
     focus_img_4:
       name: focus_img_4
       label: 背景图 - 4
-      type: text
+      type: attachment
     focus_img_5:
       name: focus_img_5
       label: 背景图 - 5
-      type: text
+      type: attachment
     focus_img_filter:
       name: focus_img_filter
       label: 背景图滤镜
@@ -239,7 +239,7 @@ sns:
     wechat:
       name: wechat
       label: 微信二维码
-      type: text
+      type: attachment
     sina:
       name: sina
       label: 新浪微博
@@ -292,3 +292,98 @@ sns:
       name: zhihu
       label: 知乎
       type: text
+focus:
+  label: 聚焦图
+  items:
+    top_feature:
+      name: top_feature
+      label: 是否开启聚焦
+      type: radio
+      data-type: bool
+      default: true
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
+    feature_title:
+      name: feature_title
+      label: 聚焦标题
+      type: text
+      default: '聚焦'
+      placeholder: '默认为聚焦，你也可以修改为其他，当然不能当广告用！不允许！！'
+    feature1_img:
+      name: feature1_img
+      label: 聚焦图一
+      type: attachment
+      placeholder: '尺寸257px*160px'
+    feature1_title:
+      name: feature1_title
+      label: 聚焦图一标题
+      type: text
+      default: 'feature1'
+    feature1_link:
+      name: feature1_link
+      label: 聚焦图一链接
+      type: text
+      default: '#'
+    feature2_img:
+      name: feature2_img
+      label: 聚焦图二
+      type: attachment
+      placeholder: '尺寸257px*160px'
+    feature2_title:
+      name: feature2_title
+      label: 聚焦图二标题
+      type: text
+      default: 'feature2'
+    feature2_link:
+      name: feature2_link
+      label: 聚焦图二链接
+      type: text
+      default: '#'
+    feature3_img:
+      name: feature3_img
+      label: 聚焦图三
+      type: attachment
+      placeholder: '尺寸257px*160px'
+    feature3_title:
+      name: feature3_title
+      label: 聚焦图三标题
+      type: text
+      default: 'feature3'
+    feature3_link:
+      name: feature3_link
+      label: 聚焦图三链接
+      type: text
+      default: '#'
+others:
+  label: 其他
+  items:
+    poi_pjax:
+      name: poi_pjax
+      label: 开启PJAX局部刷新
+      type: radio
+      data-type: bool
+      default: true
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
+    head_notice:
+      name: head_notice
+      label: 开启公告
+      type: radio
+      data-type: bool
+      default: false
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
+    notice_title:
+      name: notice_title
+      label: 公告内容
+      type: textarea
+      placeholder: '公告内容，文字超出142个字节将会被滚动显示（移动端无效），一个汉字 = 3字节，一个字母 = 1字节，自己计算吧'
