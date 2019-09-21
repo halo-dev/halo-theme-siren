@@ -10,14 +10,14 @@
 -->
 
 <article id="post-${post.id}" <?php post_class(); ?>
-    <?php if (akina_option('patternimg') || !get_post_thumbnail_id(get_the_ID())) { ?>
+    <#if settings.patternimg!true || !(post.thumbnail?? || post.thumbnail!='')>
         <header class="entry-header">
             <h1 class="entry-title">${post.title!}</h1>
             <p class="entry-census">${post.createTime?string('yyyy-MM-dd')}
                 &nbsp;&nbsp;${post.visits!0} 次阅读</p>
             <hr>
         </header><!-- .entry-header -->
-    <?php } ?>
+    </#if>
     <div class="entry-content">
         ${post.formatContent!}
     </div><!-- .entry-content -->

@@ -98,6 +98,6 @@
 				</div>
 			</div>
 		</header><!-- #masthead -->
-<#--		<?php the_headPattern(); ?>-->
+		<#nested />
 		<div id="content" class="site-content">
 </#macro>

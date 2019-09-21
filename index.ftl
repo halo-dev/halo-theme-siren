@@ -13,7 +13,9 @@
  */
 -->
 <#include "header.ftl">
-<@header title="${options.blog_title!}" keywords="${options.seo_keywords!}" description="${options.seo_description!}" />
+<@header title="${options.blog_title!}" keywords="${options.seo_keywords!}" description="${options.seo_description!}">
+	<div class="blank"></div>
+</@header>
 
 
 <#if settings.head_notice!false && settings.notice_title!=''>
@@ -51,15 +53,20 @@
 
 	<#if (settings.pagenav_style!'ajax') == 'ajax'>
 		<div id="pagination">
-			<#if posts.hasNext()>
-				<a href="${context!}/page/${posts.number+2}" class="">下一页</a>
-			<#else>
-				<span>没有更多文章</span>
-			</#if>
+			<a href="${context!}/page/${posts.number+2}" class="">下一页</a>
 		</div>
 	<#else>
 		<nav class="navigator">
-			<?php previous_posts_link('<i class="iconfont">&#xe679;</i>') ?><?php next_posts_link('<i class="iconfont">&#xe6a3;</i>') ?>
+			<#if posts.hasPrevious()>
+				<#if posts.number == 1>
+					<a href="${context!}/"><i class="iconfont">&#xe679;</i></a>
+				<#else>
+					<a href="${context!}/page/${posts.number}"><i class="iconfont">&#xe679;</i></a>
+				</#if>
+			</#if>
+			<#if posts.hasNext()>
+				<a href="${context!}/page/${posts.number+2}"><i class="iconfont">&#xe6a3;</i></a>
+			</#if>
 		</nav>
 	</#if>
 </div><!-- #primary -->

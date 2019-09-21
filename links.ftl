@@ -1,22 +1,30 @@
-<?php 
+<#--
 
 /**
  Template Name: links
  */
-
-get_header(); 
-
-?>
-	<?php while(have_posts()) : the_post(); ?>
-	<?php if(akina_option('patternimg') || !get_post_thumbnail_id(get_the_ID())) { ?>
-	<span class="linkss-title"><?php the_title();?></span>
-	<?php } ?>
-		<article <?php post_class("post-item"); ?>>
-			<?php the_content(); ?>
-			<div class="links">
-				<?php echo get_link_items(); ?>
-			</div>
-		</article>
-	<?php endwhile; ?>
-<?php
-get_footer();
+-->
+<#include "header.ftl">
+<@header title="友情链接 - ${options.blog_title!}" keywords="${options.seo_keywords!}" description="${options.seo_description!}">
+	<div class="blank"></div>
+</@header>
+	<#if settings.patternimg!true || !(post.thumbnail?? || post.thumbnail!='')>
+	    <span class="linkss-title">友情链接</span>
+	</#if>
+    <article <?php post_class("post-item"); ?>
+        <div class="links">
+            <ul class="link-items fontSmooth">
+                <@linkTag method="list">
+                    <#list links as link>
+                        <li class="link-item">
+                            <a class="link-item-inner effect-apollo" href="${link.url!}" title="${link.name!}" target="_blank">
+                                <span class="sitename">${link.name!}</span>
+                                <div class="linkdes">${link.description!}</div>
+                            </a>
+                        </li>
+                    </#list>
+                </@linkTag>
+            </ul>
+        </div>
+    </article>
+<#include "footer.ftl">
