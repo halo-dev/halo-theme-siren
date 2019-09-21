@@ -228,11 +228,31 @@ post:
     alipay_code:
       name: alipay_code
       label: 支付宝打赏
-      type: text
+      type: attachment
     wechat_code:
       name: wechat_code
       label: 微信打赏
-      type: text
+      type: attachment
+    code_pretty:
+      name: code_pretty
+      label: 文章代码高亮主题
+      type: select
+      default: Default
+      options:
+        - value: Default
+          label: Default
+        - value: Coy
+          label: Coy
+        - value: Dark
+          label: Dark
+        - value: Okaidia
+          label: Okaidia
+        - value: Solarized Light
+          label: Solarized Light
+        - value: Tomorrow Night
+          label: Tomorrow Night
+        - value: Twilight
+          label: Twilight
 sns:
   label: 社交网络
   items:
