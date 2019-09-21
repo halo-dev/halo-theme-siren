@@ -1,4 +1,4 @@
-<?php
+<#--
 /**
  * Template part for displaying a message that posts cannot be found.
  *
@@ -7,11 +7,11 @@
  * @package Akina
  */
 
-?>
+-->
 
 <section class="no-results not-found">
 	<header class="page-header">
-		<h1 class="page-title"><?php esc_html_e( '没有找到任何东西！', 'akina' ); ?></h1>
+		<h1 class="page-title">没有找到任何东西！</h1>
 	</header><!-- .page-header -->
 
 	<div class="page-content">
@@ -22,7 +22,7 @@
 
 		<?php elseif ( is_search() ) : ?>
            <div class="sorry">
-			<p><?php esc_html_e( '没有找到你想要的，看看其他的吧。', 'akina' ); ?></p>
+			<p>没有找到你想要的，看看其他的吧。</p>
 			<div class="sorry-inner">
 			<ul class="search-no-reasults">
 				<?php 
@@ -40,7 +40,7 @@
 			
 			<?php else : ?>
 
-			<p><?php esc_html_e( '我们似乎没有找到你想要的东西. 或许你可以搜索一下试试.', 'akina' ); ?></p>
+			<p>我们似乎没有找到你想要的东西. 或许你可以搜索一下试试.</p>
 			<?php
 
 		endif; ?>

@@ -1,4 +1,4 @@
-<?php
+<#---
 /**
  * The template for displaying archive pages.
  *
@@ -6,14 +6,15 @@
  *
  * @package Akina
  */
-
-get_header(); ?>
+-->
+<#include "header.ftl">
+<@header title="文章归档 - ${options.blog_title!}" keywords="${options.seo_keywords!}" description="${options.seo_description!}" />
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
-		<?php
-		if ( have_posts() ) : ?>
+			<@postTag method="archiveMonth">
+				<#if archives?? && archives?size gt 0>
 
 			<?php if(akina_option('patternimg') || !z_taxonomy_image_url()) { ?>
 			<header class="page-header">
@@ -30,25 +31,20 @@ get_header(); ?>
 
 			<?php
 			/* Start the Loop */
-			while ( have_posts() ) : the_post();  
-				/*
-				* 图片展示分类
-				*/				
-				if ( akina_option('image_category') && is_category(explode(',',akina_option('image_category'))) ){
-					get_template_part( 'tpl/content', 'category' );
-				} else {
-					get_template_part( 'tpl/content', get_post_format() );
-				}
-				
-			endwhile; 
-			?>
+			while ( have_posts() ) : the_post();
+			<#list archives as archive>
+				<#list archive.posts as post>
+					<#include "tpl/content.ftl">
+				</#list>
+			</#list>
 			<div class="clearer"></div>
 
-		<?php else :
+		<#else>
 
-			get_template_part( 'tpl/content', 'none' );
+			<#include "tpl/content-none.ftl">
 
-		endif; ?>
+		</#if>
+			</@postTag>
 
 		</main><!-- #main -->
 		<?php if ( akina_option('pagenav_style') == 'ajax') { ?>

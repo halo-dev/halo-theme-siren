@@ -48,13 +48,20 @@
 			<#include "tpl/content-none.ftl">
 		</#if>
 	</main><!-- #main -->
-	<?php if (akina_option('pagenav_style') == 'ajax') { ?>
-	<div id="pagination"><?php next_posts_link('Previous'); ?></div>
-	<?php } else { ?>
-	<nav class="navigator">
-		<?php previous_posts_link('<i class="iconfont">&#xe679;</i>') ?><?php next_posts_link('<i class="iconfont">&#xe6a3;</i>') ?>
-	</nav>
-	<?php } ?>
+
+	<#if (settings.pagenav_style!'ajax') == 'ajax'>
+		<div id="pagination">
+			<#if posts.hasNext()>
+				<a href="${context!}/page/${posts.number+2}" class="">下一页</a>
+			<#else>
+				<span>没有更多文章</span>
+			</#if>
+		</div>
+	<#else>
+		<nav class="navigator">
+			<?php previous_posts_link('<i class="iconfont">&#xe679;</i>') ?><?php next_posts_link('<i class="iconfont">&#xe6a3;</i>') ?>
+		</nav>
+	</#if>
 </div><!-- #primary -->
 
 <#include "footer.ftl">

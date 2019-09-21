@@ -86,14 +86,36 @@
 	<div class="search_close"></div>
 </form>
 <!-- search end -->
-<#--<?php wp_footer(); ?>-->
-
 <script type='text/javascript' src='${static!}/js/jquery.min.js?ver=2.0.6.170420'></script>
 <script type='text/javascript' src='${static!}/js/jquery.pjax.js?ver=2.0.6.170420'></script>
 <script type='text/javascript' src='${static!}/js/input.min.js?ver=2.0.6.170420'></script>
 <script type='text/javascript'>
 	/* <![CDATA[ */
-	var Poi = {"pjax":"","movies":"close","windowheight":"auto","codelamp":"close","ajaxurl":"http:\/\/192.168.100.6:8091\/wp-admin\/admin-ajax.php","order":"asc","formpostion":"bottom"};
+	var Poi = {
+		<#if settings.poi_pjax!true>
+			"pjax":"true",
+		<#else>
+			"pjax":"",
+		</#if>
+		<#if settings.focus_amv!false>
+			"movies":{
+				"url":"${settings.amv_url!}",
+				"name":"${settings.amv_title!}",
+				"live":"${settings.focus_mvlive!}"
+			},
+		<#else>
+			"movies":"close",
+		</#if>
+		<#if !(settings.focus_height!true)>
+			"windowheight":"fixed",
+		<#else>
+			"windowheight":"auto",
+		</#if>
+		"codelamp":"close",
+		"ajaxurl":"http:\/\/192.168.100.6:8091\/wp-admin\/admin-ajax.php",
+		"order":"asc",
+		"formpostion":"bottom"
+	};
 	/* ]]> */
 </script>
 <script type='text/javascript' src='${static!}/js/app.js?ver=2.0.6.170420'></script>

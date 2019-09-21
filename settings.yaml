@@ -148,22 +148,22 @@ mainScreen:
       name: focus_img_1
       label: 背景图
       type: attachment
-    focus_img_2:
-      name: focus_img_2
-      label: 背景图 - 2
-      type: attachment
-    focus_img_3:
-      name: focus_img_3
-      label: 背景图 - 3
-      type: attachment
-    focus_img_4:
-      name: focus_img_4
-      label: 背景图 - 4
-      type: attachment
-    focus_img_5:
-      name: focus_img_5
-      label: 背景图 - 5
-      type: attachment
+#    focus_img_2:
+#      name: focus_img_2
+#      label: 背景图 - 2
+#      type: attachment
+#    focus_img_3:
+#      name: focus_img_3
+#      label: 背景图 - 3
+#      type: attachment
+#    focus_img_4:
+#      name: focus_img_4
+#      label: 背景图 - 4
+#      type: attachment
+#    focus_img_5:
+#      name: focus_img_5
+#      label: 背景图 - 5
+#      type: attachment
     focus_img_filter:
       name: focus_img_filter
       label: 背景图滤镜

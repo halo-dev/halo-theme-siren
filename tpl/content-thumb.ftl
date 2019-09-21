@@ -40,7 +40,7 @@
 				</#if>
 			</div>
 			<div class="float-content">
-				${post.summary!}
+				<p>${post.summary!}</p>
 				<div class="post-bottom">
 					<a href="${context!}/archives/${post.url!}" class="button-normal"><i class="iconfont">&#xe6a0;</i></a>
 				</div>

@@ -1,6 +1,6 @@
 <#import "../functions.ftl" as fun>
-<figure id="centerbg" class="centerbg" style="background-image: url('http://localhost:8090/upload/2019/6/3590-f79f9ea6ba2b4f9c881a0ff1f3bdf1d1.jpg');
-	<#if !settings.focus_height!true>
+<figure id="centerbg" class="centerbg" style="background-image: url('${settings.focus_img_1!}');
+	<#if !(settings.focus_height!true)>
 		background-position: center center;background-attachment: inherit;
 	</#if>
 ">
@@ -63,5 +63,9 @@
 	</div>
 	</#if>
 </figure>
-<?php
-echo bgvideo(); //BGVideo 
+<div id="video-container" style="${(!settings.focus_amv!false || settings.focus_height!true)?string('display:none;','')}">
+	<video id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto"></video>
+	<div id="video-btn" class="loadvideo videolive"></div>
+	<div id="video-add"></div>
+	<div class="video-stu"></div>
+</div>

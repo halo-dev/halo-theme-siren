@@ -29,7 +29,7 @@
 			</#if>
 			<i class="iconfont">&#xe65f;</i>${post.createTime?string("yyyy-MM-dd")}
 		</div>
-		${post.summary!}
+		<p>${post.summary!}</p>
 		<footer class="entry-footer">
 			<div class="post-more">
 				<a href="${context!}/archives/${post.url!}"><i class="iconfont">&#xe6a0;</i></a>
@@ -39,7 +39,7 @@
 					<span><i class="iconfont">&#xe731;</i>${post.commentCount!0} 条评论</span>
 				</div>
 				<div class="views">
-					<span><i class="iconfont">&#xe73d;</i>${post.visits?c} 热度</span>
+					<span><i class="iconfont">&#xe73d;</i>${post.visits!0} 热度</span>
 				</div>
 			</div>
 		</footer><!-- .entry-footer -->

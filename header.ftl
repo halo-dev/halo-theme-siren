@@ -21,16 +21,15 @@
 	<meta name="keywords" content="${keywords!}"/>
 
 	<@global.head />
-
 	<link rel='stylesheet' id='siren-css'  href='${static!}/style.css?ver=2.0.6.170420' type='text/css' media='all' />
-
+	<#include "inc/decorate.ftl">
 	<script type="text/javascript">
 		if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
 			alert('请抛弃万恶的IE系列浏览器吧。');
 		}
 	</script>
 </head>
-<body class="blog logged-in hfeed">
+<body>
 <section id="main-container">
     <#if settings.head_focus!true>
 		<div class="headertop ${settings.focus_img_filter!'filter-nothing'}">

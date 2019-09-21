@@ -9,34 +9,44 @@
 
 -->
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-${post.id}" <?php post_class(); ?>
     <?php if (akina_option('patternimg') || !get_post_thumbnail_id(get_the_ID())) { ?>
         <header class="entry-header">
-            <h1 class="entry-title"><?php the_title(); ?></h1>
-            <p class="entry-census"><?php echo poi_time_since(strtotime($post->post_date_gmt)); ?>
-                &nbsp;&nbsp;<?php echo get_post_views(get_the_ID()); ?> 次阅读</p>
+            <h1 class="entry-title">${post.title!}</h1>
+            <p class="entry-census">${post.createTime?string('yyyy-MM-dd')}
+                &nbsp;&nbsp;${post.visits!0} 次阅读</p>
             <hr>
         </header><!-- .entry-header -->
     <?php } ?>
     <div class="entry-content">
-        <?php the_content(); ?>
-        <?php
-        wp_link_pages(array(
-            'before' => '<div class="page-links">' . __('Pages:', 'ondemand'),
-            'after' => '</div>',
-        ));
-        ?>
+        ${post.formatContent!}
     </div><!-- .entry-content -->
-    <?php the_reward(); ?>
-    <footer class="post-footer">
-        <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"
-                                       rel="nofollow">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
-        <div class="post-tags">
-            <?php if (has_tag()) {
-                echo '<i class="iconfont">&#xe68c;</i> ';
-                the_tags('', ' ', ' ');
-            } ?>
+    <div class="single-reward">
+        <div class="reward-open">赏
+            <div class="reward-main">
+                <ul class="reward-row">
+                    <#if settings.alipay_code??>
+                        <li class="alipay-code"><img src="${settings.alipay_code!}"></li>
+                    </#if>
+                    <#if settings.wechat_code??>
+                        <li class="wechat-code"><img src="${settings.wechat_code!}"></li>
+                    </#if>
+                </ul>
+            </div>
         </div>
-        <?php get_template_part('layouts/sharelike'); ?>
+    </div>
+    <footer class="post-footer">
+        <div class="post-lincenses">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="nofollow">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+        </div>
+        <div class="post-tags">
+            <#if tags?? && tags?size gt 0>
+                <i class="iconfont">&#xe68c;</i>
+                <#list tags as tag>
+                    <a href="${context!}/tags/${tag.slugName!}" rel="tag">${tag.name!}</a>
+                </#list>
+            </#if>
+        </div>
+        <#include "../layouts/sharelike.ftl">
     </footer><!-- .entry-footer -->
 </article><!-- #post-## -->
