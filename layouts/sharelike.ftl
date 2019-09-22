@@ -1,7 +1,6 @@
 <#--
-sharelike
+	sharelike
 -->
-
 <#if settings.post_like!true>
 <div class="post-like">
 <a href="javascript:;" data-action="ding" data-id="${post.id?c}" class="specsZan">

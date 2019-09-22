@@ -1,5 +1,5 @@
 <#--
-NEXT / PREVIOUS POSTS (精华版)
+	NEXT / PREVIOUS POSTS (精华版)
 -->
 <#if settings.post_nepre!true>
 <section class="post-squares nextprev">
