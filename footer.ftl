@@ -128,7 +128,7 @@
 	<script type="text/javascript" src="${static!}/plugins/prism/js/prism.js"></script>
 	<link href="${static!}/plugins/prism/css/prism-${settings.code_pretty!'Default'}.css" type="text/css" rel="stylesheet" />
 </#if>
-<script type='text/javascript' src='${static!}/js/app.js?ver=2.0.6.170420'></script>
+<script type='text/javascript' src='${static!}/js/app.min.js?ver=2.0.6.170420'></script>
 <div class="site-statistics">
 	<@common.statistics />
 </div>

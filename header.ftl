@@ -21,7 +21,7 @@
 	<meta name="keywords" content="${keywords!}"/>
 
 	<@global.head />
-	<link rel='stylesheet' id='siren-css'  href='${static!}/style.css?ver=2.0.6.170420' type='text/css' media='all' />
+	<link rel='stylesheet' id='siren-css'  href='${static!}/style.min.css?ver=2.0.6.170420' type='text/css' media='all' />
 	<#include "inc/decorate.ftl">
 	<script type="text/javascript">
 		if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?

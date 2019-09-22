@@ -204,7 +204,6 @@ var baguetteBox = function () {
 }();
 
 var home = location.href,
-    s = $('#bgvideo')[0],
     Siren = {
 
         // 移动端菜单
@@ -223,81 +222,12 @@ var home = location.href,
             }
         },
 
-        // 背景视频
-        splay: function () { // 播放
-            $('#video-btn').addClass('video-pause').removeClass('video-play').show();
-            $('.video-stu').css({"bottom": "-100px"});
-            $('.focusinfo').css({"top": "-999px"});
-            s.play();
-        },
-        spause: function () { // 暂停
-            $('#video-btn').addClass('video-play').removeClass('video-pause');
-            $('.focusinfo').css({"top": "49.3%"});
-            s.pause();
-        },
-        liveplay: function () { // 自动续播 - 播放
-            if (s.oncanplay != undefined && $('.haslive').length > 0) { // 检查视频数据
-                if ($('.videolive').length > 0) { // 检查播放状态
-                    Siren.splay();
-                }
-            }
-        },
-        livepause: function () {
-            if (s.oncanplay != undefined && $('.haslive').length > 0) { // 检查视频数据
-                Siren.spause();
-                $('.video-stu').css({"bottom": "0px"}).html('已暂停 ...');
-            }
-        },
-        addsource: function () {
-            $('.video-stu').html('正在载入视频 ...').css({"bottom": "0px"});
-            var t = Poi.movies.name.split(","), // 视频列表
-                _t = t[Math.floor(Math.random() * t.length)]; // 随机抽取视频
-            $('#bgvideo').attr('src', Poi.movies.url + '/' + _t + '.mp4');
-            $('#bgvideo').attr('video-name', _t);
-        },
-        LV: function () {
-            var _btn = $('#video-btn');
-            _btn.on('click', function () {
-                if ($(this).hasClass('loadvideo')) {
-                    $(this).addClass('video-pause').removeClass('loadvideo').hide();
-                    Siren.addsource();
-                    s.oncanplay = function () { // 数据可用时
-                        Siren.splay();
-                        $('#video-add').show();
-                        _btn.addClass('videolive');
-                        _btn.addClass('haslive'); // MDZZ
-                    }
-                } else {
-                    if ($(this).hasClass('video-pause')) {
-                        Siren.spause();
-                        _btn.removeClass('videolive');
-                        $('.video-stu').css({"bottom": "0px"}).html('已暂停 ...');
-                    } else {
-                        Siren.splay();
-                        _btn.addClass('videolive'); // 用于判断切换页面时的状态
-                    }
-                }
-                s.onended = function () { // 播放结束后
-                    $('#bgvideo').attr('src', '');
-                    $('#video-add').hide();
-                    _btn.addClass('loadvideo').removeClass('video-pause');
-                    _btn.removeClass('videolive');
-                    _btn.removeClass('haslive');
-                    $('.focusinfo').css({"top": "49.3%"});
-                }
-            });
-            $('#video-add').on('click', function () {
-                Siren.addsource();
-            });
-        },
-
         // 自适应窗口高度
         AH: function () {
             if (Poi.windowheight == 'auto') {
                 if ($('h1.main-title').length > 0) {
                     var _height = $(window).height();
                     $('#centerbg').css({'height': _height});
-                    $('#bgvideo').css({'min-height': _height});
                     $(window).resize(function () {
                         Siren.AH();
                     });
@@ -313,13 +243,9 @@ var home = location.href,
                 if ($('h1.main-title').length > 0) {
                     $('.blank').css({"padding-top": "0px"});
                     $('.headertop').css({"height": "auto"}).show();
-                    // 当前位置为首页并且视频原处于播放状态
-                    if (Poi.movies.live == 'open') Siren.liveplay();
                 } else {
                     $('.blank').css({"padding-top": "80px"});
                     $('.headertop').css({"height": "0px"}).hide();
-                    // 其他页面暂停视频
-                    Siren.livepause();
                 }
             }
         },
@@ -471,7 +397,6 @@ $(function () {
     Siren.CE(); // 点击事件
     Siren.MN(); // 移动端菜单
     Siren.IA(); // 输入框特效
-    Siren.LV(); // 加载视频
 
     if (Poi.pjax) {
         $(document).pjax('a[target!=_top]', '#page', {

@@ -40,6 +40,14 @@ general:
       name: searh_patternimg
       label: 搜索页面头部装饰图
       type: attachment
+    tag_patternimg:
+      name: tag_patternimg
+      label: 标签下文章页面头部装饰图
+      type: attachment
+    category_patternimg:
+      name: category_patternimg
+      label: 分类下文章页面头部装饰图
+      type: attachment
     top_search:
       name: top_search
       label: 搜索按钮
@@ -125,37 +133,6 @@ mainScreen:
           label: 开启
         - value: false
           label: 关闭
-    focus_amv:
-      name: focus_amv
-      label: 开启视频
-      type: radio
-      data-type: bool
-      default: false
-      options:
-        - value: true
-          label: 开启
-        - value: false
-          label: 关闭
-    focus_mvlive:
-      name: focus_mvlive
-      label: 视频自动续播
-      type: radio
-      data-type: bool
-      default: false
-      options:
-        - value: true
-          label: 开启
-        - value: false
-          label: 关闭
-    amv_url:
-      name: amv_url
-      label: 视频地址
-      type: text
-      placeholder: '视频的来源地址，该地址拼接下面的视频名，地址尾部不需要加斜杠'
-    amv_title:
-      name: amv_title
-      label: 视频名称
-      type: text
     focus_img_1:
       name: focus_img_1
       label: 背景图
