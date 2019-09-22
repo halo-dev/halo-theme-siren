@@ -1,11 +1,5 @@
 <#--
-/**
- * Template part for displaying posts.
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
- * @package Akina
- */
+    @package Akina
 -->
 <article id="post-${post.id}" <?php post_class(); ?>
     <#if !(settings.patternimg!true) || !(post.thumbnail?? || post.thumbnail!='')>

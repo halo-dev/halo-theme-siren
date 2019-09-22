@@ -1,11 +1,5 @@
 <#--
-/**
- * The template for displaying archive pages.
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
- * @package Akina
- */
+    @package Akina
 -->
 <#include "header.ftl">
 <@header title="分类：${category.name!} - ${options.blog_title!}" keywords="${options.seo_keywords!}" description="${options.seo_description!}">
@@ -62,5 +56,4 @@
     </#if>
     </nav>
 </div><!-- #primary -->
-<#include "sidebar.ftl">
 <#include "footer.ftl">

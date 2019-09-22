@@ -1,13 +1,5 @@
 <#--
-/**
- * The header for our theme.
- *
- * This is the template that displays all of the <head> section and everything up until <div id="content">
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
- * @package Akina
-*/
+	@package Akina
 -->
 <#macro header title,keywords,description>
 <!DOCTYPE html>
@@ -29,7 +21,7 @@
 		}
 	</script>
 </head>
-<body>
+<body class="hfeed">
 <section id="main-container">
     <#if settings.head_focus!true>
 		<div class="headertop ${settings.focus_img_filter!'filter-nothing'}">

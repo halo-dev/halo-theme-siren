@@ -1,12 +1,5 @@
 <#--
-/**
- * The template for displaying 404 pages (not found).
- *
- * @link https://codex.wordpress.org/Creating_an_Error_404_Page
- *
- * @package Akina
- */
-
+    @package Akina
 -->
 <html lang="zh-CN">
 <head>
@@ -20,7 +13,7 @@
     <link rel='stylesheet' id='siren-css'  href='${static!}/style.css?ver=2.0.6.170420' type='text/css' media='all' />
 
 </head>
-<body class="error404 logged-in hfeed">
+<body class="error404 hfeed">
 <section class="error-404 not-found">
     <div class="error-img">
         <img src="${static!}/images/404.jpg">

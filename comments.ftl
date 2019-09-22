@@ -1,10 +1,6 @@
 <#--
- 
-	/**
-	 * COMMENTS TEMPLATE
-	 */
-
---->
+	COMMENTS TEMPLATE
+-->
 <#macro comment post,type>
 	<#if !post.disallowComment!false>
 		<script src="//cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js"></script>

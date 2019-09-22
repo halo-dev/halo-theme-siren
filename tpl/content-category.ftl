@@ -1,11 +1,5 @@
 <#--
-/**
- * Template part for displaying posts.
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
- * @package Akina
- */
+    @package Akina
 -->
 <article class="post works-list" itemscope="" itemtype="http://schema.org/BlogPosting">
     <div class="works-entry">

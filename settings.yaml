@@ -137,6 +137,7 @@ mainScreen:
       name: focus_img_1
       label: 背景图
       type: attachment
+      default: '/louie_senpai_siren/images/hd.jpg'
 #    focus_img_2:
 #      name: focus_img_2
 #      label: 背景图 - 2

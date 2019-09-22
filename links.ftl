@@ -1,8 +1,5 @@
 <#--
-
-/**
- Template Name: links
- */
+    Template Name: links
 -->
 <#include "header.ftl">
 <@header title="友情链接 - ${options.blog_title!}" keywords="${options.seo_keywords!}" description="${options.seo_description!}">

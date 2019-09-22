@@ -1,16 +1,5 @@
 <#--
-/**
- * The main template file.
- *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
- * @package Akina
- */
+	@package Akina
 -->
 <#include "header.ftl">
 <@header title="${options.blog_title!}" keywords="${options.seo_keywords!}" description="${options.seo_description!}">
@@ -33,11 +22,6 @@
 	<main id="main" class="site-main" role="main">
 		<h1 class="main-title">Posts</h1>
 		<#if posts?? && posts.getTotalElements() gt 0>
-			<#if is_index?? && !is_sheet??>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
-			</#if>
 			<#--Start the Loop-->
 			<#if (settings.post_list_style!'standard') == 'standard'>
 				<#list posts.content as post>

@@ -61,5 +61,4 @@
     </#if>
     </nav>
 </div><!-- #primary -->
-<#include "sidebar.ftl">
 <#include "footer.ftl">

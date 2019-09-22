@@ -1,12 +1,5 @@
 <#--
-/**
- * Template part for displaying posts.
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
- * @package Akina
- */
-
+    @package Akina
 -->
 <#include "header.ftl">
 <@header title="${post.title!} - ${options.blog_title!}" keywords="${post.title!},${options.seo_keywords!},${tagWords!}" description="${post.summary!}">
@@ -40,5 +33,4 @@
         <#include "layouts/authorprofile.ftl">
     </main><!-- #main -->
 </div><!-- #primary -->
-<#include "sidebar.ftl">
 <#include "footer.ftl">

@@ -98,28 +98,10 @@
 <script type='text/javascript'>
 	/* <![CDATA[ */
 	var Poi = {
-		<#if settings.poi_pjax!true>
-			"pjax":"true",
-		<#else>
-			"pjax":"",
-		</#if>
-		<#if settings.focus_amv!false>
-		"movies":{
-			"url":"${settings.amv_url!}",
-			"name":"${settings.amv_title!}",
-			"live":"${settings.focus_mvlive!}"
-		},
-		<#else>
-		"movies":"close",
-		</#if>
-		<#if !(settings.focus_height!true)>
-			"windowheight":"fixed",
-		<#else>
-			"windowheight":"auto",
-		</#if>
+		"pjax":"${(settings.poi_pjax!true)?string('true','')}",
+		"windowheight":"${(!(settings.focus_height!true))?string('fixed','auto')}",
 		"codelamp":"open",
 		"ajaxurl":"http:\/\/192.168.100.6:8091\/wp-admin\/admin-ajax.php",
-		"order":"asc",
 		"formpostion":"bottom"
 	};
 	/* ]]> */

@@ -1,11 +1,5 @@
 <#--
-/**
- * The template for displaying search results pages.
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
- *
- * @package Akina
- */
+	@package Akina
 -->
 <#include "header.ftl">
 <@header title="${keyword!} - 搜索结果 - ${options.blog_title!}" keywords="${options.seo_keywords!}" description="${options.seo_description!}">
