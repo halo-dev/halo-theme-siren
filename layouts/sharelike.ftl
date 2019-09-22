@@ -1,9 +1,5 @@
 <#--
-
-	/**
-	 * sharelike
-	 */
-
+sharelike
 -->
 
 <#if settings.post_like!true>

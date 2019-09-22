@@ -6,9 +6,7 @@
  *
  * @package Akina
  */
-
 -->
-
 <article class="post post-list" itemscope="" itemtype="http://schema.org/BlogPosting">
     <div class="post-status">
         <div class="postava">

@@ -1,7 +1,5 @@
 <#--
-/**
- * AUTHOR PROFILE
- */
+AUTHOR PROFILE
  -->
 <#if settings.author_profile!true>
 	<section class="author-profile">

@@ -63,7 +63,7 @@
 	</div>
 	</#if>
 </figure>
-<div id="video-container" style="${(!settings.focus_amv!false || settings.focus_height!true)?string('display:none;','')}">
+<div id="video-container" style="display:none;">
 	<video id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto"></video>
 	<div id="video-btn" class="loadvideo videolive"></div>
 	<div id="video-add"></div>

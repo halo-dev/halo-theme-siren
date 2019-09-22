@@ -3471,12 +3471,7 @@ li.feature-2 {
 
 @media (max-width:860px) {
     #centerbg {
-        height: 300px;
         background-attachment: scroll;
-    }
-
-    .focusinfo,#video-container {
-        display: none;
     }
 }
 

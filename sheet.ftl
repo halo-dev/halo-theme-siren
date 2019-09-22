@@ -1,4 +1,4 @@
-<?php
+<#--
 /**
  * The template for displaying all pages.
  *
@@ -11,23 +11,16 @@
  *
  * @package Akina
  */
+-->
+<#include "header.ftl">
+<@header title="${post.title!} - ${options.blog_title!}" keywords="${post.title!},${options.seo_keywords!},${tagWords!}" description="${post.summary!}">
 
-get_header(); ?>
+</@header>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
-
-			<?php
-			while ( have_posts() ) : the_post();
-
-				get_template_part( 'tpl/content', 'page' );
-
-			endwhile; // End of the loop.
-			?>
-
+			<#include "tpl/content-page.ftl">
 		</main><!-- #main -->
 	</div><!-- #primary -->
-
-<?php
-get_sidebar();
-get_footer();
+<#include "sidebar.ftl">
+<#include "footer.ftl">

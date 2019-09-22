@@ -16,6 +16,7 @@
 
     <@global.head />
 
+    <#include "inc/decorate.ftl">
     <link rel='stylesheet' id='siren-css'  href='${static!}/style.css?ver=2.0.6.170420' type='text/css' media='all' />
 
 </head>

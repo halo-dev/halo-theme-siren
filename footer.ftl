@@ -10,6 +10,12 @@
  */
 -->
 </div><!-- #content -->
+<#include "comments.ftl">
+<#if is_post??>
+	<@comment post,"post" />
+<#elseif is_sheet??>
+	<@comment sheet,"sheet" />
+</#if>
 </div><!-- #page Pjax container-->
 <footer id="colophon" class="site-footer" role="contentinfo">
 	<div class="site-info">
@@ -98,13 +104,13 @@
 			"pjax":"",
 		</#if>
 		<#if settings.focus_amv!false>
-			"movies":{
-				"url":"${settings.amv_url!}",
-				"name":"${settings.amv_title!}",
-				"live":"${settings.focus_mvlive!}"
-			},
+		"movies":{
+			"url":"${settings.amv_url!}",
+			"name":"${settings.amv_title!}",
+			"live":"${settings.focus_mvlive!}"
+		},
 		<#else>
-			"movies":"close",
+		"movies":"close",
 		</#if>
 		<#if !(settings.focus_height!true)>
 			"windowheight":"fixed",
@@ -118,11 +124,11 @@
 	};
 	/* ]]> */
 </script>
-<script type='text/javascript' src='${static!}/js/app.js?ver=2.0.6.170420'></script>
 <#if is_post?? || is_sheet??>
 	<script type="text/javascript" src="${static!}/plugins/prism/js/prism.js"></script>
 	<link href="${static!}/plugins/prism/css/prism-${settings.code_pretty!'Default'}.css" type="text/css" rel="stylesheet" />
 </#if>
+<script type='text/javascript' src='${static!}/js/app.js?ver=2.0.6.170420'></script>
 <div class="site-statistics">
 	<@common.statistics />
 </div>

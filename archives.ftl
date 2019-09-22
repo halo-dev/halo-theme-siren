@@ -8,11 +8,22 @@
  */
 -->
 <#include "header.ftl">
-<@header title="文章归档 - ${options.blog_title!}" keywords="${options.seo_keywords!}" description="${options.seo_description!}" />
+<@header title="文章归档 - ${options.blog_title!}" keywords="${options.seo_keywords!}" description="${options.seo_description!}">
+    <#if (settings.patternimg!true) && (settings.archives_patternimg?? && settings.archives_patternimg!='')>
+        <div class="pattern-center">
+            <div class="pattern-attachment-img" style="background-image: url(${settings.archives_patternimg!})"> </div>
+            <header class="pattern-header">
+                <h1 class="entry-title">文章归档</h1>
+            </header>
+        </div>
+    <#else>
+        <div class="blank"></div>
+    </#if>
+</@header>
 <article class="post-item page type-page status-publish hentry">
     <div id="archives-temp">
-        <#if settings.patternimg!true>
-        <h2>文章归档</h2>
+        <#if !(settings.patternimg!true) || !(settings.archives_patternimg?? && settings.archives_patternimg!='')>
+            <h2>文章归档</h2>
         </#if>
         <div id="archives-content">
             <@postTag method="archiveMonth">

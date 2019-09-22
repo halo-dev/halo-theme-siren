@@ -29,6 +29,8 @@
                 </p>
             </header>
         </div>
+    <#else>
+        <div class="blank"></div>
     </#if>
 </@header>
 <div id="primary" class="content-area">

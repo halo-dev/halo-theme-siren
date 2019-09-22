@@ -6,37 +6,17 @@
  *
  * @package Akina
  */
-
 -->
-
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-    <?php if (akina_option('patternimg') || !get_post_thumbnail_id(get_the_ID())) { ?>
+<article id="post-${sheet.id!}" class="post-item post-${sheet.id} page type-page status-publish hentry">
+    <#if settings.patternimg!true || !(post.thumbnail?? || post.thumbnail!='')>
         <header class="entry-header">
-            <?php the_title('<h1 class="entry-title">', '</h1>'); ?>
+            <h1 class="entry-title">${sheet.title!}</h1>
         </header><!-- .entry-header -->
-    <?php } ?>
+    </#if>
     <div class="entry-content">
-        <?php
-        the_content();
-
-        wp_link_pages(array(
-            'before' => '<div class="page-links">' . esc_html__('Pages:', 'akina'),
-            'after' => '</div>',
-        ));
-        ?>
+        ${sheet.formatContent!}
     </div><!-- .entry-content -->
 
     <footer class="entry-footer">
-        <?php
-        edit_post_link(
-            sprintf(
-            /* translators: %s: Name of current post */
-                esc_html__('Edit %s', 'akina'),
-                the_title('<span class="screen-reader-text">"', '"</span>', false)
-            ),
-            '<span class="edit-link">',
-            '</span>'
-        );
-        ?>
     </footer><!-- .entry-footer -->
 </article><!-- #post-## -->

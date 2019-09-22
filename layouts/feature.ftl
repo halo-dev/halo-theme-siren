@@ -1,10 +1,3 @@
-<#--
-
-/**
- * DISQUS COMMENTS
- */
-
--->
 <div class="top-feature">
 	<h1 class="fes-title">${settings.feature_title!'聚焦'}</h1>
 	<div class="feature-content">

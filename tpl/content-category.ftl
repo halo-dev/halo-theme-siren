@@ -6,9 +6,7 @@
  *
  * @package Akina
  */
-
 -->
-
 <article class="post works-list" itemscope="" itemtype="http://schema.org/BlogPosting">
     <div class="works-entry">
         <div class="works-main">

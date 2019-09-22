@@ -6,9 +6,7 @@
  *
  * @package Akina
  */
-
 -->
-
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <?php if (akina_option('patternimg') || !get_post_thumbnail_id(get_the_ID())) { ?>
         <div class="Extendfull">
