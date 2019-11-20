@@ -8,12 +8,12 @@
 		<section id="comments" class="comments">
 			<div class="commentwrap comments-hidden">
 				<div class="notification"><i class="iconfont">&#xe731;</i>查看评论 -
-				<span class="noticom">${comments.content?size!} 条评论 </span>
+				<span class="noticom">${comments.getTotalElements()} 条评论 </span>
 				</div>
 			</div>
 
 			<div class="comments-main">
-				<h3 id="comments-list-title">Comments | <span class="noticom">${comments.content?size!} 条评论 </span></h3>
+				<h3 id="comments-list-title">Comments | <span class="noticom">${comments.getTotalElements()} 条评论 </span></h3>
 				<div class="commentwrap">
 					<halo-comment id="${post.id}" type="${type}"/>
 				</div>
