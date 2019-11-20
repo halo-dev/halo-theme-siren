@@ -49,11 +49,11 @@
 						<div class="herder-user-name">Blogger
 							<div class="herder-user-name-u">${user.nickname!}</div>
 						</div>
-						<div class="user-menu-option">
-							<a href="${context!}/admin/index.html#/dashboard" target="_blank">管理中心</a>
-							<a href="${context!}/admin/index.html#/posts/write" target="_blank">撰写文章</a>
-							<a href="${context!}/admin/index.html#/user/profile" target="_blank">个人资料</a>
-						</div>
+<#--						<div class="user-menu-option">-->
+<#--							<a href="${context!}/admin/index.html#/dashboard" target="_blank">管理中心</a>-->
+<#--							<a href="${context!}/admin/index.html#/posts/write" target="_blank">撰写文章</a>-->
+<#--							<a href="${context!}/admin/index.html#/user/profile" target="_blank">个人资料</a>-->
+<#--						</div>-->
 					</div>
 				</div>
 				<#if settings.top_search!true>

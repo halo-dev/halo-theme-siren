@@ -101,7 +101,7 @@
 		"pjax":"${(settings.poi_pjax!true)?string('true','')}",
 		"windowheight":"${(!(settings.focus_height!true))?string('fixed','auto')}",
 		"codelamp":"open",
-		"ajaxurl":"http:\/\/192.168.100.6:8091\/wp-admin\/admin-ajax.php",
+		"ajaxurl":"${context!}",
 		"formpostion":"bottom"
 	};
 	/* ]]> */

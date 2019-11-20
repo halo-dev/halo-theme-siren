@@ -342,12 +342,12 @@ var home = location.href,
                         nextHref = $(data).find("#pagination a").attr("href");
                         // In the new content
                         $("#main").append(result.fadeIn(500));
-                        $("#pagination a").removeClass("loading").text("Previous");
+                        $("#pagination a").removeClass("loading").text("下一页");
                         if (nextHref != undefined) {
                             $("#pagination a").attr("href", nextHref);
                         } else {
                             // If there is no link, that is the last page, then remove the navigation
-                            $("#pagination").html("<span>Don't have more ...</span>");
+                            $("#pagination").html("<span>没有更多文章了</span>");
                         }
                     }
                 });

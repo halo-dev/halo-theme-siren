@@ -1,14 +1,14 @@
 <#--
 	sharelike
 -->
-<#if settings.post_like!true>
-<div class="post-like">
-<a href="javascript:;" data-action="ding" data-id="${post.id?c}" class="specsZan">
-	<i class="iconfont">&#xe669;</i> <span class="count">
-		${post.likes?c}
-	</a>
-</div>
-</#if>
+<#--<#if settings.post_like!true>-->
+<#--<div class="post-like">-->
+<#--<a href="javascript:;" data-action="ding" data-id="${post.id?c}" class="specsZan">-->
+<#--	<i class="iconfont">&#xe669;</i> <span class="count">-->
+<#--		${post.likes?c}-->
+<#--	</a>-->
+<#--</div>-->
+<#--</#if>-->
 <#if settings.post_share!true>
 <div class="post-share">
 <ul class="sharehidden">

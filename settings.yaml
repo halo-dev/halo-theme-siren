@@ -171,17 +171,17 @@ mainScreen:
 post:
   label: 文章页
   items:
-    post_like:
-      name: post_like
-      label: 文章点赞
-      type: radio
-      data-type: bool
-      default: true
-      options:
-        - value: true
-          label: 开启
-        - value: false
-          label: 关闭
+#    post_like:
+#      name: post_like
+#      label: 文章点赞
+#      type: radio
+#      data-type: bool
+#      default: true
+#      options:
+#        - value: true
+#          label: 开启
+#        - value: false
+#          label: 关闭
     post_share:
       name: post_share
       label: 文章分享
@@ -375,7 +375,7 @@ others:
       label: 开启PJAX局部刷新
       type: radio
       data-type: bool
-      default: true
+      default: false
       options:
         - value: true
           label: 开启

@@ -43,7 +43,11 @@
     </main><!-- #main -->
     <#if (settings.pagenav_style!'ajax') == 'ajax'>
         <div id="pagination">
-            <a href="${context!}/tags/${tag.slugName!}/page/${posts.number+2}" class="">下一页</a>
+            <#if posts.hasNext()>
+                <a href="${context!}/tags/${tag.slugName!}/page/${posts.number+2}" class="">下一页</a>
+            <#else>
+                <span>没有更多文章了</span>
+            </#if>
         </div>
     <#else>
         <nav class="navigator">
