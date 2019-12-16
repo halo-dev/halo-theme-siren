@@ -15,7 +15,7 @@
 			<div class="comments-main">
 				<h3 id="comments-list-title">Comments | <span class="noticom">${comments.getTotalElements()!0} 条评论 </span></h3>
 				<div class="commentwrap">
-					<halo-comment id="${post.id}" type="${type}"/>
+					<halo-comment id="${post.id?c}" type="${type}"/>
 				</div>
 			</div>
 		</section>
