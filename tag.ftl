@@ -11,7 +11,7 @@
 <@header title="标签：${tag.name!} - ${options.blog_title!}" keywords="${options.seo_keywords!}" description="${options.seo_description!}">
     <#if (settings.patternimg!true) && (settings.tag_patternimg?? && settings.tag_patternimg!='')>
         <div class="pattern-center">
-            <div class="pattern-attachment-img" style="background-image: url(${settings.tag_patternimg!})"> </div>
+            <div class="pattern-attachment-img" style="background-image: url('${settings.tag_patternimg!}')"> </div>
             <header class="pattern-header">
                 <h1 class="cat-title">标签：${tag.name!}</h1>
             </header>

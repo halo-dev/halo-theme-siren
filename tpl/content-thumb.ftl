@@ -5,9 +5,9 @@
 <article class="post post-list-thumb <#if (post_index+1) % 2==0>post-list-thumb-left</#if>" itemscope="" itemtype="http://schema.org/BlogPosting">
 	<div class="post-thumb">
 		<#if post.thumbnail?? && post.thumbnail!=''>
-			<a href="${context!}/archives/${post.url!}" style="background-image: url(${post.thumbnail!});"></a>
+			<a href="${context!}/archives/${post.url!}" style="background-image: url('${post.thumbnail!}');"></a>
 		<#else>
-			<a href="${context!}/archives/${post.url!}" style="background-image: url(${static!}/images/temp.jpg);"></a>
+			<a href="${context!}/archives/${post.url!}" style="background-image: url('${static!}/images/temp.jpg');"></a>
 		</#if>
 	</div><!-- thumbnail-->
 	<div class="post-content-wrap">

@@ -5,7 +5,7 @@
 <@header title="${post.title!} - ${options.blog_title!}" keywords="${post.title!},${options.seo_keywords!},${tagWords!}" description="${post.summary!}">
     <#if settings.patternimg!true && post.thumbnail?? && post.thumbnail!=''>
         <div class="pattern-center single-center">
-            <div class="pattern-attachment-img" style="background-image: url(${post.thumbnail!})"> </div>
+            <div class="pattern-attachment-img" style="background-image: url('${post.thumbnail!}')"> </div>
             <header class="pattern-header single-header">
                 <h1 class="entry-title">${post.title!}</h1>
                 <p class="entry-census">
