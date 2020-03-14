@@ -21,7 +21,7 @@
 	<div class="site-info">
 		<div class="footertext">
 			<p class="foo-logo"
-			   style="background-image: url('${static!}/images/f-logo.png');"></p>
+			   style="background-image: url('${theme_base!}/images/f-logo.png');"></p>
 			<p>
 				<@global.footer />
 			</p>
@@ -36,14 +36,14 @@
 		<div class="icon"></div>
 	</div>
 	<div class="site-branding">
-		<#if options.blog_logo??>
+		<#if blog_logo?? && blog_logo!=''>
 			<div class="site-title">
-				<a href="${context!}">
-					<img src="${options.blog_logo!}">
+				<a href="${blog_url!}">
+					<img src="${blog_logo!}">
 				</a>
 			</div>
 		<#else>
-			<h1 class="site-title"><a href="${context!}">${options.blog_title!}</a></h1>
+			<h1 class="site-title"><a href="${blog_url!}">${blog_title!}</a></h1>
 		</#if>
 	</div>
 </div><!-- m-nav-bar -->
@@ -54,7 +54,7 @@
 		<#if user.avatar??>
 			<img src="${user.avatar!}">
 		<#else>
-			<img src="${static!}/images/avatar.jpg">
+			<img src="${theme_base!}/images/avatar.jpg">
 		</#if>
 	</div>
 	<div class="m-search">
@@ -92,27 +92,27 @@
 	<div class="search_close"></div>
 </form>
 <!-- search end -->
-<script type='text/javascript' src='${static!}/js/jquery.min.js?ver=2.0.6.170420'></script>
-<script type='text/javascript' src='${static!}/js/jquery.pjax.js?ver=2.0.6.170420'></script>
-<script type='text/javascript' src='${static!}/js/input.min.js?ver=2.0.6.170420'></script>
+<script type='text/javascript' src='${theme_base!}/js/jquery.min.js?ver=2.0.6.170420'></script>
+<script type='text/javascript' src='${theme_base!}/js/jquery.pjax.js?ver=2.0.6.170420'></script>
+<script type='text/javascript' src='${theme_base!}/js/input.min.js?ver=2.0.6.170420'></script>
 <script type='text/javascript'>
 	/* <![CDATA[ */
 	var Poi = {
 		"pjax":"${(settings.poi_pjax!true)?string('true','')}",
 		"windowheight":"${(!(settings.focus_height!true))?string('fixed','auto')}",
 		"codelamp":"open",
-		"ajaxurl":"${context!}",
+		"ajaxurl":"${blog_url!}",
 		"formpostion":"bottom"
 	};
 	/* ]]> */
 </script>
 <#if is_post?? || is_sheet??>
-	<script type="text/javascript" src="${static!}/plugins/prism/js/prism.js"></script>
-	<link href="${static!}/plugins/prism/css/prism-${settings.code_pretty!'Default'}.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="${theme_base!}/plugins/prism/js/prism.js"></script>
+	<link href="${theme_base!}/plugins/prism/css/prism-${settings.code_pretty!'Default'}.css" type="text/css" rel="stylesheet" />
 </#if>
-<script type='text/javascript' src='${static!}/js/app.min.js?ver=2.0.6.170420'></script>
+<script type='text/javascript' src='${theme_base!}/js/app.min.js?ver=2.0.6.170420'></script>
 <div class="site-statistics">
-	<@common.statistics />
+	<@global.statistics />
 </div>
 </body>
 </html>

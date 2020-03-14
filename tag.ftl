@@ -8,7 +8,7 @@
  */
 -->
 <#include "header.ftl">
-<@header title="标签：${tag.name!} - ${options.blog_title!}" keywords="${options.seo_keywords!}" description="${options.seo_description!}">
+<@header title="标签：${tag.name!} - ${blog_title!}">
     <#if (settings.patternimg!true) && (settings.tag_patternimg?? && settings.tag_patternimg!='')>
         <div class="pattern-center">
             <div class="pattern-attachment-img" style="background-image: url(${settings.tag_patternimg!})"> </div>
@@ -41,28 +41,25 @@
             <#include "tpl/content-none.ftl">
         </#if>
     </main><!-- #main -->
-    <#if (settings.pagenav_style!'ajax') == 'ajax'>
-        <div id="pagination">
-            <#if posts.hasNext()>
-                <a href="${context!}/tags/${tag.slugName!}/page/${posts.number+2}" class="">下一页</a>
-            <#else>
-                <span>没有更多文章了</span>
-            </#if>
-        </div>
-    <#else>
-        <nav class="navigator">
-            <#if posts.hasPrevious()>
-                <#if posts.number == 1>
-                    <a href="${context!}/tags/${tag.slugName!}"><i class="iconfont">&#xe679;</i></a>
+    <@paginationTag method="tagPosts" page="${posts.number}" total="${posts.totalPages}" display="3" slug="${tag.slug!}">
+        <#if (settings.pagenav_style!'ajax') == 'ajax'>
+            <div id="pagination">
+                <#if pagination.hasNext>
+                    <a href="${pagination.nextPageFullPath!}" class="">下一页</a>
                 <#else>
-                    <a href="${context!}/tags/${tag.slugName!}/page/${posts.number}"><i class="iconfont">&#xe679;</i></a>
+                    <span>没有更多文章了</span>
                 </#if>
-            </#if>
-            <#if posts.hasNext()>
-                <a href="${context!}/tags/${tag.slugName!}/page/${posts.number+2}"><i class="iconfont">&#xe6a3;</i></a>
-            </#if>
-        </nav>
-    </#if>
-    </nav>
+            </div>
+        <#else>
+            <nav class="navigator">
+                <#if pagination.hasPrev>
+                    <a href="${pagination.prevPageFullPath!}"><i class="iconfont">&#xe679;</i></a>
+                </#if>
+                <#if pagination.hasNext>
+                    <a href="${pagination.nextPageFullPath!}"><i class="iconfont">&#xe6a3;</i></a>
+                </#if>
+            </nav>
+        </#if>
+    </@paginationTag>
 </div><!-- #primary -->
 <#include "footer.ftl">

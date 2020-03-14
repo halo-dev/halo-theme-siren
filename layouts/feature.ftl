@@ -6,7 +6,7 @@
 				<div class="feature-title">
 					<span class="foverlay">${settings.feature1_title!'feature1'}</span>
 				</div>
-				<img src="${settings.feature1_img!'${static}/images/temp.jpg'}">
+				<img src="${settings.feature1_img!'${theme_base!}/images/temp.jpg'}">
 			</a>
 		</li>
 		<li class="feature-2">
@@ -14,7 +14,7 @@
 				<div class="feature-title">
 					<span class="foverlay">${settings.feature2_title!'feature2'}</span>
 				</div>
-				<img src="${settings.feature2_img!'${static}/images/temp.jpg'}">
+				<img src="${settings.feature2_img!'${theme_base!}/images/temp.jpg'}">
 			</a>
 		</li>
 		<li class="feature-3">
@@ -22,7 +22,7 @@
 				<div class="feature-title">
 					<span class="foverlay">${settings.feature3_title!'feature3'}</span>
 				</div>
-				<img src="${settings.feature3_img!'${static}/images/temp.jpg'}">
+				<img src="${settings.feature3_img!'${theme_base!}/images/temp.jpg'}">
 			</a>
 		</li>
 	</div>

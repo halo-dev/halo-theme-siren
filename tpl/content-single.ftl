@@ -37,7 +37,7 @@
             <#if tags?? && tags?size gt 0>
                 <i class="iconfont">&#xe68c;</i>
                 <#list tags as tag>
-                    <a href="${context!}/tags/${tag.slugName!}" rel="tag">${tag.name!}</a>
+                    <a href="${tag.fullPath!}" rel="tag">${tag.name!}</a>
                 </#list>
             </#if>
         </div>

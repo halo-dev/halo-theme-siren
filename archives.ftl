@@ -2,7 +2,7 @@
     @package Akina
 -->
 <#include "header.ftl">
-<@header title="文章归档 - ${options.blog_title!}" keywords="${options.seo_keywords!}" description="${options.seo_description!}">
+<@header title="文章归档 - ${blog_title!}">
     <#if (settings.patternimg!true) && (settings.archives_patternimg?? && settings.archives_patternimg!='')>
         <div class="pattern-center">
             <div class="pattern-attachment-img" style="background-image: url(${settings.archives_patternimg!})"> </div>
@@ -30,7 +30,7 @@
                                 <span class="ar-circle"></span>
                                 <div class="arrow-left-ar"></div>
                                 <div class="brick">
-                                    <a href="${context!}/archives/${post.url!}">
+                                    <a href="${post.fullPath!}">
                                         <span class="time"><i class="iconfont">&#xe65f;</i>${post.createTime?string('MM-dd')}</span>${post.title!}
                                     </a>
                                 </div>

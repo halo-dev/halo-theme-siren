@@ -2,7 +2,7 @@
 	@package Akina
 -->
 <#include "header.ftl">
-<@header title="${keyword!} - 搜索结果 - ${options.blog_title!}" keywords="${options.seo_keywords!}" description="${options.seo_description!}">
+<@header title="${keyword!} - 搜索结果 - ${blog_title!}">
 	<#if (settings.patternimg!true) && (settings.searh_patternimg?? && settings.searh_patternimg!='')>
 		<div class="pattern-center">
 			<div class="pattern-attachment-img" style="background-image: url(${settings.searh_patternimg!})"> </div>
@@ -27,16 +27,14 @@
 				<#include "tpl/content.ftl">
 			</#list>
 			<nav class="navigator">
-				<#if posts.hasPrevious()>
-					<#if posts.number == 1>
-						<a href="${context!}/search?keyword=${keyword!}"><i class="iconfont">&#xe679;</i></a>
-					<#else>
-						<a href="${context!}/search/page/${posts.number}?keyword=${keyword!}"><i class="iconfont">&#xe679;</i></a>
-					</#if>
-				</#if>
-				<#if posts.hasNext()>
-					<a href="${context!}/search/page/${posts.number+2}?keyword=${keyword!}"><i class="iconfont">&#xe6a3;</i></a>
-				</#if>
+                <@paginationTag method="search" page="${posts.number}" total="${posts.totalPages}" display="3" keyword="${keyword!}">
+                    <#if pagination.hasPrev>
+                        <a href="${pagination.prevPageFullPath!}"><i class="iconfont">&#xe679;</i></a>
+                    </#if>
+                    <#if pagination.hasNext>
+                        <a href="${pagination.nextPageFullPath!}"><i class="iconfont">&#xe6a3;</i></a>
+                    </#if>
+                </@paginationTag>
 			</nav>
         <#else>
 			<div class="search-box">

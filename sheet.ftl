@@ -2,7 +2,7 @@
 	@package Akina
 -->
 <#include "header.ftl">
-<@header title="${sheet.title!} - ${options.blog_title!}" keywords="${sheet.title!},${options.seo_keywords!}" description="${options.seo_description!}">
+<@header title="${sheet.title!} - ${blog_title!}">
 	<#if (settings.patternimg!true) && (sheet.thumbnail?? && sheet.thumbnail!='')>
 		<div class="pattern-center">
 			<div class="pattern-attachment-img" style="background-image: url(${sheet.thumbnail!})"> </div>
