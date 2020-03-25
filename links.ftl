@@ -2,7 +2,7 @@
     Template Name: links
 -->
 <#include "header.ftl">
-<@header title="友情链接 - ${options.blog_title!}" keywords="${options.seo_keywords!}" description="${options.seo_description!}">
+<@header title="友情链接 - ${blog_title!}">
     <#if (settings.patternimg!true) && (settings.links_patternimg?? && settings.links_patternimg!='')>
         <div class="pattern-center">
             <div class="pattern-attachment-img" style="'background-image: url(${settings.links_patternimg!}')"> </div>

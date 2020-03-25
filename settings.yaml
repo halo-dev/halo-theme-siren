@@ -30,24 +30,29 @@ general:
           label: 关闭
     archives_patternimg:
       name: archives_patternimg
-      label: 归档页面头部装饰图
+      label: 归档页装饰图
       type: attachment
+      description: '归档页面头部装饰图'
     links_patternimg:
       name: links_patternimg
-      label: 友情链接页面头部装饰图
+      label: 友链页装饰图
       type: attachment
+      description: '友情链接页面头部装饰图'
     searh_patternimg:
       name: searh_patternimg
-      label: 搜索页面头部装饰图
+      label: 搜索页装饰图
       type: attachment
+      description: '搜索页面头部装饰图'
     tag_patternimg:
       name: tag_patternimg
-      label: 标签下文章页面头部装饰图
+      label: 标签页默认装饰图
       type: attachment
+      description: '标签下文章页面默认头部装饰图'
     category_patternimg:
       name: category_patternimg
-      label: 分类下文章页面头部装饰图
+      label: 分类页默认装饰图
       type: attachment
+      description: '分类下文章页面默认头部装饰图'
     top_search:
       name: top_search
       label: 搜索按钮

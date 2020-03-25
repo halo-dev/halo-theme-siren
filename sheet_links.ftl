@@ -5,7 +5,7 @@
  */
 -->
 <#include "header.ftl">
-<@header title="${sheet.title!} - ${options.blog_title!}" keywords="${options.seo_keywords!}" description="${options.seo_description!}" />
+<@header title="${sheet.title!} - ${blog_title!}" />
 	<?php while(have_posts()) : the_post(); ?>
 	<?php if(akina_option('patternimg') || !get_post_thumbnail_id(get_the_ID())) { ?>
 	<span class="linkss-title"><?php the_title();?></span>

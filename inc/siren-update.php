@@ -247,7 +247,7 @@ function Exuser_center(){ ?>
   <?php }else{ ?>
   <div class="user-login-check">
     <?php echo login_ok(); ?>
-    <?php if(akina_option('login_urlskip')){ ?><script>gopage("${context!}",0);</script><?php } ?>
+    <?php if(akina_option('login_urlskip')){ ?><script>gopage("${blog_url!}",0);</script><?php } ?>
   </div>
 <?php 
   }
@@ -263,7 +263,7 @@ function login_ok(){
   <?php if($current_user->user_email){echo '<p>'.$current_user->user_email.'</p>';} ?>
   <p id="login-showtime"></p>
   <p class="ex-logout">
-    <a href="${context!}" title="首页">首页</a>
+    <a href="${blog_url!}" title="首页">首页</a>
     <?php if(current_user_can('level_10')){  ?>
     <a href="${context!}/wp-admin/" title="后台" target="_top">后台</a>
     <?php } ?>

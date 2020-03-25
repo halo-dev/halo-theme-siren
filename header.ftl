@@ -1,7 +1,7 @@
 <#--
 	@package Akina
 -->
-<#macro header title,keywords,description>
+<#macro header title>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -9,11 +9,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title itemprop="name">${title!}</title>
 
-	<meta name="description" content="${description!}"/>
-	<meta name="keywords" content="${keywords!}"/>
+	<meta name="description" content="${meta_description!}"/>
+	<meta name="keywords" content="${meta_keywords!}"/>
 
 	<@global.head />
-	<link rel='stylesheet' id='siren-css'  href='${static!}/style.min.css?ver=2.0.6.170420' type='text/css' media='all' />
+	<link rel='stylesheet' id='siren-css'  href='${theme_base!}/style.min.css?ver=2.0.6.170420' type='text/css' media='all' />
 	<#include "inc/decorate.ftl">
 	<script type="text/javascript">
 		if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
@@ -32,14 +32,14 @@
 		<header class="site-header" role="banner">
 			<div class="site-top">
 				<div class="site-branding">
-					<#if options.blog_logo??>
+					<#if blog_logo?? && blog_logo!=''>
 						<div class="site-title">
-							<a href="${context!}">
-								<img src="${options.blog_logo!}">
+							<a href="${blog_url!}">
+								<img src="${blog_logo!}">
 							</a>
 						</div>
 					<#else>
-						<h1 class="site-title"><a href="${context!}">${options.blog_title!}</a></h1>
+						<h1 class="site-title"><a href="${blog_url!}">${blog_title!}</a></h1>
 					<!-- logo end -->
 					</#if>
 				</div><!-- .site-branding -->

@@ -2,7 +2,7 @@
 	@package Akina
 -->
 <#include "header.ftl">
-<@header title="${options.blog_title!}" keywords="${options.seo_keywords!}" description="${options.seo_description!}">
+<@header title="${blog_title!}">
 	<div class="blank"></div>
 </@header>
 
@@ -35,28 +35,26 @@
 		</#if>
 	</main><!-- #main -->
 
-	<#if (settings.pagenav_style!'ajax') == 'ajax'>
-		<div id="pagination">
-			<#if posts.hasNext()>
-				<a href="${context!}/page/${posts.number+2}" class="">下一页</a>
-			<#else>
-				<span>没有更多文章了</span>
-			</#if>
-		</div>
-	<#else>
-		<nav class="navigator">
-			<#if posts.hasPrevious()>
-				<#if posts.number == 1>
-					<a href="${context!}/"><i class="iconfont">&#xe679;</i></a>
+	<@paginationTag method="index" page="${posts.number}" total="${posts.totalPages}" display="3">
+		<#if (settings.pagenav_style!'ajax') == 'ajax'>
+			<div id="pagination">
+				<#if pagination.hasNext>
+					<a href="${pagination.nextPageFullPath!}" class="">下一页</a>
 				<#else>
-					<a href="${context!}/page/${posts.number}"><i class="iconfont">&#xe679;</i></a>
+					<span>没有更多文章了</span>
 				</#if>
-			</#if>
-			<#if posts.hasNext()>
-				<a href="${context!}/page/${posts.number+2}"><i class="iconfont">&#xe6a3;</i></a>
-			</#if>
-		</nav>
-	</#if>
+			</div>
+		<#else>
+			<nav class="navigator">
+				<#if pagination.hasPrev>
+					<a href="${pagination.prevPageFullPath!}"><i class="iconfont">&#xe679;</i></a>
+				</#if>
+				<#if pagination.hasNext>
+					<a href="${pagination.nextPageFullPath!}"><i class="iconfont">&#xe6a3;</i></a>
+				</#if>
+			</nav>
+		</#if>
+	</@paginationTag>
 </div><!-- #primary -->
 
 <#include "footer.ftl">
