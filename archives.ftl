@@ -5,7 +5,7 @@
 <@header title="文章归档 - ${blog_title!}">
     <#if (settings.patternimg!true) && (settings.archives_patternimg?? && settings.archives_patternimg!='')>
         <div class="pattern-center">
-            <div class="pattern-attachment-img" style="background-image: url('${settings.archives_patternimg!'})"> </div>
+            <div class="pattern-attachment-img" style="background-image: url('${settings.archives_patternimg!}')"> </div>
             <header class="pattern-header">
                 <h1 class="entry-title">文章归档</h1>
             </header>
@@ -22,7 +22,7 @@
         <div id="archives-content">
             <@postTag method="archiveMonth">
                 <#list archives as archive>
-                    <div class="archive-title" id="arti-${archive.year?c}-${archive.month!}">
+                    <div class="archive-title" id="arti-${archive.year?c}-${archive.month!}">ßßßßß
                         <span class="ar-time"><i class="iconfont">&#xe74a;</i></span>
                         <h3>${archive.year?c}-${archive.month!}</h3>
                         <div class="archives archives-${archive_index}" id="monlist" data-date="${archive.year?c}-${archive.month!}" style="display: block; overflow: hidden;">
