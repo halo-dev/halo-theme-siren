@@ -22,7 +22,7 @@
         <div id="archives-content">
             <@postTag method="archiveMonth">
                 <#list archives as archive>
-                    <div class="archive-title" id="arti-${archive.year?c}-${archive.month!}">ßßßßß
+                    <div class="archive-title" id="arti-${archive.year?c}-${archive.month!}">
                         <span class="ar-time"><i class="iconfont">&#xe74a;</i></span>
                         <h3>${archive.year?c}-${archive.month!}</h3>
                         <div class="archives archives-${archive_index}" id="monlist" data-date="${archive.year?c}-${archive.month!}" style="display: block; overflow: hidden;">
